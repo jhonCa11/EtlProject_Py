@@ -1,0 +1,80 @@
+[2024-08-31T00:48:53.072+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-31T00:48:53.197+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olist_dag.extract_data scheduled__2023-03-29T00:00:00+00:00 [queued]>
+[2024-08-31T00:48:53.244+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olist_dag.extract_data scheduled__2023-03-29T00:00:00+00:00 [queued]>
+[2024-08-31T00:48:53.246+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-08-31T00:48:53.442+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_data> on 2023-03-29 00:00:00+00:00
+[2024-08-31T00:48:53.501+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=161) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-31T00:48:53.515+0000] {standard_task_runner.py:64} INFO - Started process 214 to run task
+[2024-08-31T00:48:53.508+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'olist_dag', 'extract_data', 'scheduled__2023-03-29T00:00:00+00:00', '--job-id', '13', '--raw', '--subdir', 'DAGS_FOLDER/elt_dag.py', '--cfg-path', '/tmp/tmpqw04vq8a']
+[2024-08-31T00:48:53.517+0000] {standard_task_runner.py:91} INFO - Job 13: Subtask extract_data
+[2024-08-31T00:48:53.800+0000] {task_command.py:426} INFO - Running <TaskInstance: olist_dag.extract_data scheduled__2023-03-29T00:00:00+00:00 [running]> on host ad3e56ef573e
+[2024-08-31T00:48:54.453+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='olist_dag' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2023-03-29T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-29T00:00:00+00:00'
+[2024-08-31T00:48:54.492+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-31T00:48:54.530+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-31T00:48:54.538+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/elt_dag.py", line 23, in extract_data
+    from src.extract import extract
+ModuleNotFoundError: No module named 'src'
+[2024-08-31T00:48:54.675+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=olist_dag, task_id=extract_data, run_id=scheduled__2023-03-29T00:00:00+00:00, execution_date=20230329T000000, start_date=20240831T004853, end_date=20240831T004854
+[2024-08-31T00:48:54.799+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 13 for task extract_data (No module named 'src'; 214)
+[2024-08-31T00:48:54.928+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-31T00:48:55.047+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-31T00:48:55.058+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
+[2024-08-31T01:45:07.688+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-31T01:45:07.805+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: olist_dag.extract_data scheduled__2023-03-29T00:00:00+00:00 [queued]>
+[2024-08-31T01:45:07.900+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: olist_dag.extract_data scheduled__2023-03-29T00:00:00+00:00 [queued]>
+[2024-08-31T01:45:08.002+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2024-08-31T01:45:08.360+0000] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): extract_data> on 2023-03-29 00:00:00+00:00
+[2024-08-31T01:45:08.846+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=188) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2024-08-31T01:45:08.919+0000] {standard_task_runner.py:64} INFO - Started process 224 to run task
+[2024-08-31T01:45:08.831+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'olist_dag', 'extract_data', 'scheduled__2023-03-29T00:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/elt_dag.py', '--cfg-path', '/tmp/tmp1zfxcf1u']
+[2024-08-31T01:45:08.949+0000] {standard_task_runner.py:91} INFO - Job 15: Subtask extract_data
+[2024-08-31T01:45:10.743+0000] {task_command.py:426} INFO - Running <TaskInstance: olist_dag.extract_data scheduled__2023-03-29T00:00:00+00:00 [running]> on host dde48ad7e5a8
+[2024-08-31T01:45:11.331+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='olist_dag' AIRFLOW_CTX_TASK_ID='extract_data' AIRFLOW_CTX_EXECUTION_DATE='2023-03-29T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-03-29T00:00:00+00:00'
+[2024-08-31T01:45:11.338+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-31T01:45:11.353+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-31T01:45:11.354+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/elt_dag.py", line 23, in extract_data
+    from src.extract import extract
+ModuleNotFoundError: No module named 'src'
+[2024-08-31T01:45:11.417+0000] {taskinstance.py:1206} INFO - Marking task as UP_FOR_RETRY. dag_id=olist_dag, task_id=extract_data, run_id=scheduled__2023-03-29T00:00:00+00:00, execution_date=20230329T000000, start_date=20240831T014507, end_date=20240831T014511
+[2024-08-31T01:45:11.460+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 15 for task extract_data (No module named 'src'; 224)
+[2024-08-31T01:45:11.530+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2024-08-31T01:45:11.590+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-31T01:45:11.597+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
